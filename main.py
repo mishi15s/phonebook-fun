@@ -24,6 +24,29 @@ def vac():
     print("---------------------------------")   
     for name,number in phonebook.items():
         print(f"Name:{name}-Phonenumber:{phonebook[name]}")
+def search():
+    name=input("Enter the name to be searched:")
+    if name not in phonebook:
+        print("Contact does not exist ❌")
+    else :
+        print("Contact found")
+        print(f"Name:{name}-Phonenumber:{phonebook[name]}")
+def uc():
+    name=input("Emter the name to be updated:").strip().lower()
+    if name not in phonebook:
+        print("Contact does not exist ❌")
+    else :
+        nn=input("Enter the new number:")
+        phonebook[name]=nn
+        print("Contact updated successfully✔️")
+def dc():
+    name=input("Emter the name to be deleted:").strip().lower()
+    if name not in phonebook:
+        print("Contact does not exist ❌")
+    else :
+        del phonebook[name]
+        print("Contact deleted ❌")
+           
 while True :
     showmenu()        
     ch=input("Enter your choice :")
@@ -31,3 +54,13 @@ while True :
         addcontact()
     elif ch=="2"  :
         vac()  
+    elif ch=="3"  :
+        search()  
+    elif ch=="4"  :
+        uc()  
+    elif ch=="5"  :
+        dc() 
+    elif ch=="6"   :
+        break     
+    else  :
+        print("❌❌Invalid input❌❌")
